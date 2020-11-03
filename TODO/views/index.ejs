@@ -4,28 +4,39 @@
 	<title>
 		Todo App
 	</title>
+	<style>
+		.list{
+			padding: 30px;
+			width: 550px;
+			height: 300px;
+			border-style: ridge;
+		}
+	</style>
 	<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
 </head>
 <body>
 <center>
+	<marquee><h1> Welcome!!</h1></marquee><br><br>
+	<form action="/logout">
+		<div style="margin-left: 60%;">
+			<BUTTON> LOGOUT</BUTTON>
+		</div>
+	</form><br>
+	<h2>Todo list</h2>
 	<div class="list">
-		<h2>Todo list</h2><br>
-
 		<form action="/addtask" method="POST">
 			<input type="text" name="addtask" placeholder="Add a new task"><br><br>
 			<button>Add task</button>&nbsp&nbsp
 			<button formaction="/removetask" type="submit"> RemoveAll </button>
 		</form>
-	</div>
-
 	<ol>
 		<% if (list.length >0) { %>
 			<% for (var i=0; i<list.length; i++) { %>
 					<li><span><%= list[i].title%> </span>&nbsp&nbsp <a href="/remove/<%= list[i].id %>">Remove</a><br></li>
 			<% } %>
 		<% } %>
-
 	</ol>
+	</div>
 </center>
 </body>
 </html>
